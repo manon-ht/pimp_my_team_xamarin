@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using SQLite;
+using SQLiteNetExtensions.Attributes;
 
 namespace PimpMyTeam
 {
@@ -14,6 +15,9 @@ namespace PimpMyTeam
         public string LastName { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
+
+        [ManyToMany(typeof(Member))]
+        public List<Member> Members { get; set; }
 
         public string Name
         {
