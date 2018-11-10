@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
+# Blend for Visual Studio 15
 VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PimpMyTeam.Android", "PimpMyTeam\PimpMyTeam.Android\PimpMyTeam.Android.csproj", "{2F3BC298-EDBB-48C9-869D-386139ACB52E}"
