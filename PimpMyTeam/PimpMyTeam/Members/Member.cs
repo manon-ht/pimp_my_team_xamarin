@@ -16,8 +16,8 @@ namespace PimpMyTeam
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
 
-        [ManyToMany(typeof(Member))]
-        public List<Member> Members { get; set; }
+        [ManyToMany(typeof(Team))]
+        public List<Team> Teams { get; set; }
 
         public string Name
         {

@@ -13,6 +13,7 @@ namespace PimpMyTeam
             database = new SQLiteAsyncConnection(dbPath);
             database.CreateTableAsync<Member>().Wait();
             database.CreateTableAsync<Team>().Wait();
+            database.CreateTableAsync<MemberTeam>().Wait();
         }
 
         // MEMBERS

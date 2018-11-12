@@ -10,6 +10,7 @@
             <Entry Text="{Binding Email}" />
             <Label Text="Phone number" />
             <Entry Text="{Binding PhoneNumber}" />
+            <Button Text="Teams" Clicked="OnTeamsClicked" />
             <Button Text="Save" Clicked="OnSaveClicked" />
             <Button Text="Delete" Clicked="OnDeleteClicked" />
             <Button Text="Cancel" Clicked="OnCancelClicked" />
