@@ -1,12 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PimpMyTeam.MemberTeamPage">
     <StackLayout Margin="20" VerticalOptions="StartAndExpand">
         <Button Text="Ajouter" Clicked="OnAddClicked" />
-    </StackLayout>
-    <ContentPage.Content>
-        <ListView x:Name="listView" Margin="20">
+        <ListView x:Name="teamListView" Margin="20">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -18,5 +16,8 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+    </StackLayout>
+    <ContentPage.Content>
+        
     </ContentPage.Content>
 </ContentPage>

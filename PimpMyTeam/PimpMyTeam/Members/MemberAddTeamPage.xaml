@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PimpMyTeam.MemberAddTeamPage">
     <StackLayout Margin="20">
-        <Label Text="Bindable Picker Demo" FontAttributes="Bold" HorizontalOptions="Center" />
-        <Picker Title="Select a team" ItemsSource="{Binding TeamsListing}"  ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedTeam, Mode=TwoWay}" />
-        <BoxView Color="Blue" HeightRequest="200" />
+        <Label Text="Team selector" FontAttributes="Bold" HorizontalOptions="Center" />
+        <Picker x:Name="teamsPicker" Title="Select a team" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedTeam, Mode=TwoWay}" />
+        <Button Text="Save" Clicked="OnSaveClicked" />
     </StackLayout>
 </ContentPage>

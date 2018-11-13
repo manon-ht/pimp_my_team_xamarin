@@ -24,7 +24,9 @@ namespace PimpMyTeam
             // Reset the 'resume' id, since we just want to re-start here
             ((App)App.Current).ResumeAtTodoId = -1;
             var memberItem = (Member)BindingContext;
-            listView.ItemsSource = memberItem.Teams;
+            var memberTeams = memberItem.Teams;
+
+            teamListView.ItemsSource = memberItem.Teams;
         }
 
         async void OnAddClicked(object sender, SelectedItemChangedEventArgs e)

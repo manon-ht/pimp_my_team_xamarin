@@ -38,7 +38,7 @@ namespace PimpMyTeam
 
         async void OnTeamsClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MemberTeamPage
+            await Navigation.PushAsync(new MemberTeamPage()
             {
                 BindingContext = (Member)BindingContext
             });
