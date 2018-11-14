@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using SQLiteNetExtensionsAsync.Extensions;
+
 using SQLite;
 
 namespace PimpMyTeam
@@ -25,18 +27,18 @@ namespace PimpMyTeam
 
         public Task<Member> GetMemberAsync(int id)
         {
-            return database.Table<Member>().Where(i => i.ID == id).FirstOrDefaultAsync();
+            return database.GetWithChildrenAsync<Member>(id);
         }
 
-        public Task<int> SaveMemberAsync(Member item)
+        public void SaveMemberAsync(Member item)
         {
             if (item.ID != 0)
             {
-                return database.UpdateAsync(item);
+                database.UpdateWithChildrenAsync(item);
             }
             else
             {
-                return database.InsertAsync(item);
+                database.InsertWithChildrenAsync(item);
             }
         }
 
@@ -54,18 +56,18 @@ namespace PimpMyTeam
 
         public Task<Team> GetTeamAsync(int id)
         {
-            return database.Table<Team>().Where(i => i.ID == id).FirstOrDefaultAsync();
+            return database.GetWithChildrenAsync<Team>(id);
         }
 
-        public Task<int> SaveTeamAsync(Team item)
+        public void SaveTeamAsync(Team item)
         {
             if (item.ID != 0)
             {
-                return database.UpdateAsync(item);
+                database.UpdateWithChildrenAsync(item);
             }
             else
             {
-                return database.InsertAsync(item);
+                database.InsertWithChildrenAsync(item);
             }
         }
 

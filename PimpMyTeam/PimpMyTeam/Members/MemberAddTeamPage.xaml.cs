@@ -32,7 +32,7 @@ namespace PimpMyTeam
         {
             Team t = (Team)teamsPicker.SelectedItem;
             if (t != null) {
-                await App.Database.SaveTeamAsync(t);
+                App.Database.SaveTeamAsync(t);
                 Member memberItem = (Member)BindingContext;
                 List<Team> mTeams = memberItem.Teams;
                 if (mTeams == null) {
@@ -40,7 +40,7 @@ namespace PimpMyTeam
                 } else {
                     memberItem.Teams.Add(t);
                 }
-                await App.Database.SaveMemberAsync(memberItem);
+                App.Database.SaveMemberAsync(memberItem);
                 await Navigation.PopAsync();
             }
         }

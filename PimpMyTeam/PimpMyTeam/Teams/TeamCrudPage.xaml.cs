@@ -20,7 +20,7 @@ namespace PimpMyTeam
         async void OnSaveClicked(object sender, EventArgs e)
         {
             var teamItem = (Team)BindingContext;
-            await App.Database.SaveTeamAsync(teamItem);
+            App.Database.SaveTeamAsync(teamItem);
             await Navigation.PopAsync();
         }
 

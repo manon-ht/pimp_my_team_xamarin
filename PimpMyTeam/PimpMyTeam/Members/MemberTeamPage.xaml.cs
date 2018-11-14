@@ -26,7 +26,7 @@ namespace PimpMyTeam
             var memberItem = (Member)BindingContext;
             var memberTeams = memberItem.Teams;
 
-            teamListView.ItemsSource = memberItem.Teams;
+            teamListView.ItemsSource = memberTeams;
         }
 
         async void OnAddClicked(object sender, SelectedItemChangedEventArgs e)

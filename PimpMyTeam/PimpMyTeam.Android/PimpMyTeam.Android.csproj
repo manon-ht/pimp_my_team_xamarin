@@ -55,7 +55,7 @@
     <PackageReference Include="SQLiteNetExtensions.Async">
       <Version>2.1.0</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="3.3.0.912540" />
+    <PackageReference Include="Xamarin.Forms" Version="3.3.0.967583" />
     <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2.1" />
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="27.0.2.1" />
     <PackageReference Include="Xamarin.Android.Support.v4" Version="27.0.2.1" />
@@ -99,7 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PimpMyTeam\PimpMyTeam.csproj">
-      <Project>{50594EC9-05A5-41D8-AC7B-B7CAC0376D70}</Project>
+      <Project>{2FC6A4D5-501D-49E2-9CCA-31D41F4B917B}</Project>
       <Name>PimpMyTeam</Name>
     </ProjectReference>
   </ItemGroup>
