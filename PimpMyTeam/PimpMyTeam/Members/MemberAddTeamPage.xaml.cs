@@ -14,35 +14,36 @@ namespace PimpMyTeam
 		public MemberAddTeamPage ()
 		{
 			InitializeComponent ();
-           /* BindingContext = new TeamPickerPageViewModel
+           
+          /*  BindingContext = new MemberPageViewModel
             {
-                TeamsListing = TeamsListingContext()
+                Member = (Member)BindingContext
             };*/
         }
 
-        protected async override void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
             // Reset the 'resume' id, since we just want to re-start here
-            ((App)App.Current).ResumeAtTodoId = -1;
-            teamsPicker.ItemsSource = await App.Database.GetTeamsAsync();
+          //  ((App)App.Current).ResumeAtTodoId = -1;
+         //   //TeamsPicker.ItemsSource = await App.Database.GetTeamsAsync();
         }
 
         async void OnSaveClicked(object sender, EventArgs e)
         {
-            Team t = (Team)teamsPicker.SelectedItem;
+            MemberPageViewModel viewModel = (MemberPageViewModel)BindingContext;
+            Team t = (Team)TeamsPicker.SelectedItem;
             if (t != null) {
-                App.Database.SaveTeamAsync(t);
-                Member memberItem = (Member)BindingContext;
-                List<Team> mTeams = memberItem.Teams;
-                if (mTeams == null) {
-                    memberItem.Teams = new List<Team> { t };
+               //App.Database.SaveTeamAsync(t);
+                if (viewModel.Member.Teams == null) {
+                    viewModel.Member.Teams = new List<Team> { t };
                 } else {
-                    memberItem.Teams.Add(t);
+                    viewModel.Member.Teams.Add(t);
                 }
-                App.Database.SaveMemberAsync(memberItem);
+                App.Database.SaveMemberAsync(viewModel.Member);
                 await Navigation.PopAsync();
             }
+         
         }
     }
 }

@@ -15,7 +15,7 @@ namespace PimpMyTeam
 		public MemberCrudPage ()
 		{
 			InitializeComponent ();
-		}
+        }
 
         async void OnSaveClicked(object sender, EventArgs e)
         {
@@ -38,10 +38,10 @@ namespace PimpMyTeam
 
         async void OnTeamsClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MemberTeamPage()
-            {
-                BindingContext = (Member)BindingContext
-            });
+            var memberTeamPage = new MemberTeamPage();
+            Member member = (Member)BindingContext;
+            memberTeamPage.BindingContext = new MemberPageViewModel(member);
+            await Navigation.PushAsync(memberTeamPage);
         }
     }
 }

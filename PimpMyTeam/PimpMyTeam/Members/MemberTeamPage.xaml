@@ -4,7 +4,7 @@
              x:Class="PimpMyTeam.MemberTeamPage">
     <StackLayout Margin="20" VerticalOptions="StartAndExpand">
         <Button Text="Ajouter" Clicked="OnAddClicked" />
-        <ListView x:Name="teamListView" Margin="20">
+        <ListView x:Name="teamListView" ItemsSource="{Binding MemberTeamsList}" Margin="20">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

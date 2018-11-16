@@ -15,6 +15,7 @@ namespace PimpMyTeam
 		public MemberTeamPage()
 		{
 			InitializeComponent();
+
 		}
 
         protected override void OnAppearing()
@@ -23,17 +24,21 @@ namespace PimpMyTeam
 
             // Reset the 'resume' id, since we just want to re-start here
             ((App)App.Current).ResumeAtTodoId = -1;
-            var memberItem = (Member)BindingContext;
-            var memberTeams = memberItem.Teams;
+            //MemberPageViewModel context = (MemberPageViewModel)BindingContext;
+            //teamListView.BindingContext = context.MemberTeamsList;
+            // var memberItem = (Member)BindingContext;
+            //  var memberTeams = memberItem.Teams;
 
-            teamListView.ItemsSource = memberTeams;
+            //teamListView.ItemsSource = memberTeams;
         }
 
         async void OnAddClicked(object sender, SelectedItemChangedEventArgs e)
         {
+            MemberPageViewModel viewModel = (MemberPageViewModel)BindingContext;
+
             await Navigation.PushAsync(new MemberAddTeamPage
             {
-                BindingContext = (Member)BindingContext
+                BindingContext = viewModel
             });
         }
     }

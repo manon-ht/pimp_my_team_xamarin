@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using SQLite;
+using SQLiteNetExtensions.Attributes;
 
 namespace PimpMyTeam
 {
@@ -9,7 +10,10 @@ namespace PimpMyTeam
     public class Team
     {
         [PrimaryKey, AutoIncrement]
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
+
+        [ManyToMany(typeof(MemberTeam), "TeamId", "Teams", ReadOnly = true)]
+        public List<Member> Members { get; set; }
     }
 }

@@ -22,7 +22,7 @@ namespace PimpMyTeam
 
         public Task<List<Member>> GetMembersAsync()
         {
-            return database.Table<Member>().ToListAsync();
+            return database.GetAllWithChildrenAsync<Member>();
         }
 
         public Task<Member> GetMemberAsync(int id)
@@ -32,7 +32,7 @@ namespace PimpMyTeam
 
         public void SaveMemberAsync(Member item)
         {
-            if (item.ID != 0)
+            if (item.Id != 0)
             {
                 database.UpdateWithChildrenAsync(item);
             }
@@ -51,7 +51,7 @@ namespace PimpMyTeam
 
         public Task<List<Team>> GetTeamsAsync()
         {
-            return database.Table<Team>().ToListAsync();
+            return database.GetAllWithChildrenAsync<Team>();
         }
 
         public Task<Team> GetTeamAsync(int id)
@@ -61,7 +61,7 @@ namespace PimpMyTeam
 
         public void SaveTeamAsync(Team item)
         {
-            if (item.ID != 0)
+            if (item.Id != 0)
             {
                 database.UpdateWithChildrenAsync(item);
             }

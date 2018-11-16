@@ -1,18 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace PimpMyTeam
 {
-    class TeamPickerPageViewModel : ViewModelBase
+    public class MemberPageViewModel : ViewModelBase
     {
-        public Task<IList<Team>> TeamsListing { get; set; }
+        public IList<Team> TeamsList { get; set; }
 
-        public async Task<IList<Team>> TeamsListingAsync()
+        public IList<Team> MemberTeamsList { get; set; }
+
+        public Member Member { get; set; }
+
+        public MemberPageViewModel(Member member)
         {
-            return await App.Database.GetTeamsAsync();
-
+            Member = member;
+            MemberTeamsList = Member.Teams;
+            TeamsList = App.Database.GetTeamsAsync().Result;
         }
 
         Team selectedTeam;
@@ -30,3 +34,4 @@ namespace PimpMyTeam
         }
     }
 }
+

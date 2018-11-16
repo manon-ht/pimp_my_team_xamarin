@@ -7,10 +7,8 @@ namespace PimpMyTeam
 {
     public class MemberTeam
     {
-        [ForeignKey(typeof(Member))]
         public int MemberId { get; set; }
 
-        [ForeignKey(typeof(Team))]
         public int TeamId { get; set; }
     }
 }
