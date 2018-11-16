@@ -19,6 +19,7 @@
   <ItemGroup>
     <Compile Remove="ViewModels\TeamPickerPageViewModel.cs" />
     <Compile Remove="ViewModelBase.cs" />
+    <Compile Remove="ViewModels\TeamPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Members\MemberTeamPage.xaml.cs">

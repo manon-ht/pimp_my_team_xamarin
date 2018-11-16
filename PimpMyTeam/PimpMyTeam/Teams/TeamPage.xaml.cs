@@ -40,10 +40,9 @@ namespace PimpMyTeam
             //Debug.WriteLine("setting ResumeAtTodoId = " + (e.SelectedItem as TodoItem).ID);
             if (e.SelectedItem != null)
             {
-                await Navigation.PushAsync(new TeamCrudPage
-                {
-                    BindingContext = e.SelectedItem as Team
-                });
+                var teamCrudPage = new TeamCrudPage();
+                teamCrudPage.BindingContext = e.SelectedItem as Team;
+                await Navigation.PushAsync(teamCrudPage);
             }
         }
     }

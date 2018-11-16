@@ -17,6 +17,24 @@ namespace PimpMyTeam
 			InitializeComponent ();
         }
 
+        protected override void OnBindingContextChanged()
+        {
+            base.OnBindingContextChanged();
+
+            Team t = (Team)BindingContext;
+            if (t != null && t.Id != 0)
+            {
+                var deleteBtn = new Button()
+                {
+                    Text = "Delete",
+                };
+                deleteBtn.Clicked += (sender, e) => {
+                    OnDeleteClicked(sender, e);
+                };
+                memberCrudStack.Children.Add(deleteBtn);
+            }
+        }
+
         async void OnSaveClicked(object sender, EventArgs e)
         {
             var memberItem = (Member)BindingContext;
