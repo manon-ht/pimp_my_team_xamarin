@@ -21,7 +21,7 @@ namespace PimpMyTeam
         {
             base.OnBindingContextChanged();
 
-            Team t = (Team)BindingContext;
+            Member t = (Member)BindingContext;
             if (t != null && t.Id != 0)
             {
                 var deleteBtn = new Button()
@@ -38,8 +38,10 @@ namespace PimpMyTeam
         async void OnSaveClicked(object sender, EventArgs e)
         {
             var memberItem = (Member)BindingContext;
-            App.Database.SaveMemberAsync(memberItem);
-            await Navigation.PopAsync();
+            if (memberItem.Name != "") {
+                App.Database.SaveMemberAsync(memberItem);
+                await Navigation.PopAsync();
+            }
         }
 
         async void OnDeleteClicked(object sender, EventArgs e)

@@ -7,8 +7,20 @@ namespace PimpMyTeam
     public class MemberPageViewModel : ViewModelBase
     {
         public IList<Team> TeamsList { get; set; }
-
-        public IList<Team> MemberTeamsList { get; set; }
+       
+        IList<Team> memberTeamsList;
+        public IList<Team> MemberTeamsList
+        {
+            get { return memberTeamsList; }
+            set
+            {
+                if (memberTeamsList != value)
+                {
+                    memberTeamsList = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
         public Member Member { get; set; }
 
