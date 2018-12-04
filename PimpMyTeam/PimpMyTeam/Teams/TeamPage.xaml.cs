@@ -15,23 +15,25 @@ namespace PimpMyTeam
         public TeamPage()
         {
             InitializeComponent();
+            TeamCollectionViewModel teamCollection = new TeamCollectionViewModel(Navigation);
+            this.BindingContext = teamCollection;
         }
 
-        protected override async void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
 
             // Reset the 'resume' id, since we just want to re-start here
             ((App)App.Current).ResumeAtTodoId = -1;
-            listView.ItemsSource = await App.Database.GetTeamsAsync();
+            //listView.ItemsSource = await App.Database.GetTeamsAsync();
         }
 
         async void OnItemAdded(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new TeamCrudPage
-            {
-                BindingContext = new Team()
-            });
+            var teamCrudPage = new TeamCrudPage();
+            teamCrudPage.BindingContext = this.BindingContext;
+            await Navigation.PushAsync(teamCrudPage);
+            //await Navigation.PushAsync(new TeamCrudPage());
         }
 
         async void OnListItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -41,7 +43,11 @@ namespace PimpMyTeam
             if (e.SelectedItem != null)
             {
                 var teamCrudPage = new TeamCrudPage();
-                teamCrudPage.BindingContext = e.SelectedItem as Team;
+
+                TeamCollectionViewModel binding = (TeamCollectionViewModel)this.BindingContext;
+                binding.TeamViewModel = e.SelectedItem as TeamViewModel;
+                teamCrudPage.BindingContext = binding;
+
                 await Navigation.PushAsync(teamCrudPage);
             }
         }

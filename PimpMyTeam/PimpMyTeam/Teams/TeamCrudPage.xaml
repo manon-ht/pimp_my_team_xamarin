@@ -3,10 +3,10 @@
     <ScrollView>
         <StackLayout x:Name="teamCrudStack" Margin="20" VerticalOptions="StartAndExpand">
             <Label Text="Name" />
-            <Entry Text="{Binding Name}" />
-            <Button Text="Save" Clicked="OnSaveClicked" />
+            <Entry Text="{Binding TeamViewModel.Name}" />
+            <Button Text="Save"  Command="{Binding SubmitCommand}" />
 <!--            <Button Text="Delete" Clicked="OnDeleteClicked" />
--->            <Button Text="Cancel" Clicked="OnCancelClicked" />
+-->            <Button Text="Cancel" Command="{Binding CancelCommand}" />
         </StackLayout>
     </ScrollView>
 </ContentPage>
