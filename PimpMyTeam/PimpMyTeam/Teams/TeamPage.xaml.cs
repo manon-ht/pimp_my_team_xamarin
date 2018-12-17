@@ -31,7 +31,10 @@ namespace PimpMyTeam
         async void OnItemAdded(object sender, EventArgs e)
         {
             var teamCrudPage = new TeamCrudPage();
-            teamCrudPage.BindingContext = this.BindingContext;
+            TeamCollectionViewModel tcvm = (TeamCollectionViewModel)this.BindingContext;
+            tcvm.InitTeamViewModel();
+            //tcvm.TeamViewModel = new TeamViewModel();
+            teamCrudPage.BindingContext = tcvm;
             await Navigation.PushAsync(teamCrudPage);
             //await Navigation.PushAsync(new TeamCrudPage());
         }
