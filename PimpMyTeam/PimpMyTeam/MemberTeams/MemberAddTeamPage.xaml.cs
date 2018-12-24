@@ -13,7 +13,7 @@ namespace PimpMyTeam
 	{
 		public MemberAddTeamPage ()
 		{
-			InitializeComponent ();
+			InitializeComponent();
            
           /*  BindingContext = new MemberPageViewModel
             {

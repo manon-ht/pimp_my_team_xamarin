@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PimpMyTeam.MemberAddTeamPage">
     <StackLayout Margin="20">
-        <Label Text="Team selector" FontAttributes="Bold" HorizontalOptions="Center" />
+        <Label Text="Member selector" FontAttributes="Bold" HorizontalOptions="Center" />
         <Picker x:Name="TeamsPicker" ItemsSource="{Binding TeamsList}" Title="Select a team" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedTeam, Mode=TwoWay}" />
         <Button Text="Save" Clicked="OnSaveClicked" />
     </StackLayout>

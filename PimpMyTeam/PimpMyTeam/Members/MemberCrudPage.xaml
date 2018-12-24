@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="PimpMyTeam.MemberCrudPage" Title="{Binding Name}">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="PimpMyTeam.MemberCrudPage" Title="{Binding TeamViewModel.Member.Name}">
     <ScrollView>
         <StackLayout x:Name="memberCrudStack" Margin="20" VerticalOptions="StartAndExpand">
             <Label Text="First name" />
-            <Entry Text="{Binding FirstName}" />
+            <Entry Text="{Binding MemberViewModel.FirstName}" />
             <Label Text="Last name" />
-            <Entry Text="{Binding LastName}" />
+            <Entry Text="{Binding MemberViewModel.LastName}" />
             <Label Text="Email" />
-            <Entry Text="{Binding Email}" />
+            <Entry Text="{Binding MemberViewModel.Email}" />
             <Label Text="Phone number" />
-            <Entry Text="{Binding PhoneNumber}" />
+            <Entry Text="{Binding MemberViewModel.PhoneNumber}" />
+            <Button Text="Save"  Command="{Binding SubmitCommand}" />
+            <Button Text="Delete" Command="{Binding DeleteCommand}" />
+            <Button Text="Cancel" Command="{Binding CancelCommand}" />
             <Button Text="Teams" Clicked="OnTeamsClicked" />
-            <Button Text="Save" Clicked="OnSaveClicked" />
-            <Button Text="Cancel" Clicked="OnCancelClicked" />
         </StackLayout>
     </ScrollView>
 </ContentPage>

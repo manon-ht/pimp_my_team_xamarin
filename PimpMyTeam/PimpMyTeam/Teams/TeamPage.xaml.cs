@@ -33,10 +33,8 @@ namespace PimpMyTeam
             var teamCrudPage = new TeamCrudPage();
             TeamCollectionViewModel tcvm = (TeamCollectionViewModel)this.BindingContext;
             tcvm.InitTeamViewModel();
-            //tcvm.TeamViewModel = new TeamViewModel();
             teamCrudPage.BindingContext = tcvm;
             await Navigation.PushAsync(teamCrudPage);
-            //await Navigation.PushAsync(new TeamCrudPage());
         }
 
         async void OnListItemSelected(object sender, SelectedItemChangedEventArgs e)

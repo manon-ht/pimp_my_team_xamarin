@@ -14,8 +14,10 @@ namespace PimpMyTeam
     {
 		public MemberPage ()
 		{
-			InitializeComponent ();
-		}
+			InitializeComponent();
+            MemberCollectionViewModel memberCollection = new MemberCollectionViewModel(Navigation);
+            this.BindingContext = memberCollection;
+        }
 
         protected override async void OnAppearing()
         {
@@ -23,15 +25,15 @@ namespace PimpMyTeam
 
             // Reset the 'resume' id, since we just want to re-start here
             ((App)App.Current).ResumeAtTodoId = -1;
-            listView.ItemsSource = await App.Database.GetMembersAsync();
         }
 
         async void OnItemAdded(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MemberCrudPage
-            {
-                BindingContext = new Member()
-            });
+            var memberCrudPage = new MemberCrudPage();
+            MemberCollectionViewModel mcvm = (MemberCollectionViewModel)this.BindingContext;
+            mcvm.InitMemberViewModel();
+            memberCrudPage.BindingContext = mcvm;
+            await Navigation.PushAsync(memberCrudPage);
         }
 
         async void OnListItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -40,10 +42,13 @@ namespace PimpMyTeam
             //Debug.WriteLine("setting ResumeAtTodoId = " + (e.SelectedItem as TodoItem).ID);
             if (e.SelectedItem != null)
             {
-                await Navigation.PushAsync(new MemberCrudPage
-                {
-                    BindingContext = e.SelectedItem as Member
-                });
+                var memberCrudPage = new MemberCrudPage();
+
+                MemberCollectionViewModel binding = (MemberCollectionViewModel)this.BindingContext;
+                binding.MemberViewModel = e.SelectedItem as MemberViewModel;
+                memberCrudPage.BindingContext = binding;
+
+                await Navigation.PushAsync(memberCrudPage);
             }
         }
     }

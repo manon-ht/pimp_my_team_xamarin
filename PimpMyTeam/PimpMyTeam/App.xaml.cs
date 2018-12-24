@@ -8,13 +8,15 @@ namespace PimpMyTeam
 {
     public partial class App : Application
     {
+        public static NavigationPage NavPage = new NavigationPage(new MainPage());
+
         static Database database;
 
         public App()
         {
             InitializeComponent();
 
-            MainPage = new PimpMyTeam.MainPage();
+            MainPage = NavPage;
         }
 
         public static Database Database
